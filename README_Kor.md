@@ -43,15 +43,22 @@
 
 ## 레포 구조
 
-Sprint가 진행되면서 폴더가 추가됩니다. 예시는 다음과 같습니다.
+Sprint마다 주제 이름으로 폴더를 하나씩 만듭니다. Sprint 안에서 주차별 진행 기록은 `notes/`에 두고, Zephyr 앱은 각각 독립 폴더로 두어 `west build`로 따로 빌드할 수 있게 합니다.
 
 ```
 nrf54l15-biosignal-lab/
-├── sprint1_morse_blinky/   # Zephyr 앱 (src/, prj.conf, CMakeLists.txt, boards/)
-│   └── README.md           # 만든 내용 + 회고
+├── sprint1_zephyr_basics/
+│   ├── README.md           # Sprint 요약, 결과 영상 링크, 회고
+│   ├── notes/
+│   │   ├── week1.md        # 주차별 학습 기록 (이론, Day 1-3)
+│   │   └── week2.md        # 주차별 학습 기록 (실습, Day 4-7)
+│   ├── blinky/             # Zephyr 앱 (CMakeLists.txt, prj.conf, src/)
+│   └── morse_blinky/       # Zephyr 앱 (미니 프로젝트)
 ├── sprint2_.../
 └── ...
 ```
+
+Sprint 기간은 2–4주로 다르므로, 긴 Sprint는 `notes/week3.md`처럼 파일을 추가하면 됩니다.
 
 ## 개발 도구
 

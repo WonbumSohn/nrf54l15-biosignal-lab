@@ -43,15 +43,22 @@ Each sprint folder will include the code, notes, and a retrospective covering wh
 
 ## Repository Structure
 
-Folders are added as sprints progress, for example:
+One folder per sprint, named by topic. Inside a sprint, weekly progress lives in `notes/`, and each Zephyr app has its own folder so it can be built on its own with `west build`.
 
 ```
 nrf54l15-biosignal-lab/
-├── sprint1_morse_blinky/   # Zephyr app (src/, prj.conf, CMakeLists.txt, boards/)
-│   └── README.md           # What was built + retrospective
+├── sprint1_zephyr_basics/
+│   ├── README.md           # Sprint summary, demo video link, retrospective
+│   ├── notes/
+│   │   ├── week1.md        # Weekly learning log (theory, Day 1-3)
+│   │   └── week2.md        # Weekly learning log (practice, Day 4-7)
+│   ├── blinky/             # Zephyr app (CMakeLists.txt, prj.conf, src/)
+│   └── morse_blinky/       # Zephyr app (mini project)
 ├── sprint2_.../
 └── ...
 ```
+
+Sprints run 2 to 4 weeks, so a longer sprint simply adds `notes/week3.md` and so on.
 
 ## Toolchain
 
