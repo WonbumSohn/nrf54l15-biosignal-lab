@@ -1,0 +1,24 @@
+# Private folders (personal notes and reference code, not shared)
+# 비공개 폴더 (개인 노트와 참고 코드, 공유하지 않음)
+Wonbum/
+참고코드/
+
+# Zephyr / nRF Connect SDK build output
+# Zephyr / nRF Connect SDK 빌드 결과물
+build/
+build_*/
+
+# Editor settings (contain local paths)
+# 에디터 설정 (로컬 경로 포함)
+.vscode/
+.idea/
+
+# macOS system files
+# macOS 시스템 파일
+.DS_Store
+
+# Python cache and Jupyter checkpoints
+# 파이썬 캐시와 주피터 체크포인트
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
