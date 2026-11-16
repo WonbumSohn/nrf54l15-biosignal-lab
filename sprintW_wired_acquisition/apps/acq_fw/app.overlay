@@ -1,0 +1,44 @@
+/*
+ * acq_fw overlay — XIAO nRF54L15 (notes/pinmap.md 기준 / per notes/pinmap.md)
+ *
+ * uart20: 콘솔 UART → SAMD11 → USB. Gate 0 결정대로 1 Mbaud (notes/gate0.md)
+ * i2s20 : SPH0645 — SCK=D0(P1.04, clock pin), LRCK=D1(P1.05), SDIN=D2(P1.06)
+ *         PS Table 77: I2S에서 clock pin 필요한 신호는 SCK·MCK뿐 (LRCK 불필요)
+ *         PS I2S20 "Available GPIO port: P1"
+ */
+
+&uart20 {
+	current-speed = <1000000>;
+};
+
+&pinctrl {
+	i2s20_default: i2s20_default {
+		group1 {
+			psels = <NRF_PSEL(I2S_SCK_M, 1, 4)>,
+				<NRF_PSEL(I2S_LRCK_M, 1, 5)>,
+				<NRF_PSEL(I2S_SDIN, 1, 6)>;
+		};
+	};
+};
+
+&i2s20 {
+	status = "okay";
+	pinctrl-0 = <&i2s20_default>;
+	pinctrl-names = "default";
+};
+
+/*
+ * i2c22 (xiao_i2c): SDA=D4(P1.10), SCL=D5(P1.11), 400 kHz — 보드 기본값 그대로
+ * MAX30102 0x57, INT=D3(P1.07): 오픈드레인 + 모듈 풀업 없음 → 내부 풀업 (d2-5)
+ */
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&i2c22 {
+	status = "okay";
+
+	max30102: max30102@57 {
+		compatible = "sprintw,max30102";
+		reg = <0x57>;
+		int-gpios = <&gpio1 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+	};
+};

@@ -1,0 +1,13 @@
+# MAX30102 PPG 센서 (최소 바인딩, minimal binding) — apps/acq_fw/src/ppg.c 가 레지스터 직접 사용
+# Zephyr 센서 드라이버를 쓰지 않으므로 전용 compatible을 둠 (no Zephyr sensor driver)
+description: MAX30102 pulse oximeter (raw register access by acq_fw)
+
+compatible: "sprintw,max30102"
+
+include: [i2c-device.yaml]
+
+properties:
+  int-gpios:
+    type: phandle-array
+    required: true
+    description: INT 핀 (오픈드레인, active low) / INT pin (open-drain, active low)

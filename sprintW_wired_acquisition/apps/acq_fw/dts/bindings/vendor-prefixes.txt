@@ -1,0 +1,2 @@
+# 앱 전용 vendor prefix (app-local vendor prefix, dts/bindings/sprintw,*.yaml)
+sprintw	Sprint W acquisition firmware (local)

@@ -1,0 +1,17 @@
+{
+  "_comment": "사람 손가락 기본값 초안 (human finger defaults, draft) — d2-7, 2026-11-16. 최종은 d6-4",
+  "subject": "human",
+  "ppg": {
+    "sensor": "MAX30102",
+    "mode": "spo2",
+    "sample_rate_hz": 100,
+    "pulse_width_us": 411,
+    "adc_range_na": 4096,
+    "sample_average": 1,
+    "led_red_pa": 36,
+    "led_ir_pa": 36,
+    "led_current_ma": {"red": 7.2, "ir": 7.2},
+    "fifo_a_full_samples": 17,
+    "hr_band_hz": [0.7, 3.5]
+  }
+}
