@@ -22,3 +22,14 @@ build_*/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Python virtual environment
+# 파이썬 가상환경
+.venv/
+
+# Sprint W recordings (large)
+# Sprint W 녹음 데이터 (대용량)
+sprintW_wired_acquisition/data/
+
+# Live Viewer 로컬 설정 (local settings)
+tools/live_viewer/settings.local.json
